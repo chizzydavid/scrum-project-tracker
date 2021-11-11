@@ -1,26 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Categories } from './components/Categories';
+import { Stats } from './components/Stats';
+import { TODOCategoriesProvider } from './context/TODOCategories';
+import { TODOListProvider } from './context/TODOList';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <TODOCategoriesProvider>
+      <TODOListProvider>
+        <div className="max-w-5xl mx-auto px-8 lg:p-0 my-4">
+          <div className="min-h-screen w-full flex">
+            <div className="w-64">
+              <Stats />
+            </div>
+            <div className="flex-1 overflow-auto">
+              <Categories />
+            </div>
+          </div>
+        </div>
+      </TODOListProvider>
+    </TODOCategoriesProvider>
   );
 }
 
 export default App;
+
